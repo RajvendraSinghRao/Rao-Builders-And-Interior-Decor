@@ -1,21 +1,380 @@
-/* Navigation buttons for slideshow */
-.popup-content .prev, .popup-content .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Real Estate Broker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.popup-content .prev {
-    left: 10px;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
 
-.popup-content .next {
-    right: 10px;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #333;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+            color: #fff;
+        }
+
+        .property-listing {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            margin: 0 10%;
+        }
+
+        .property-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: scale(1.05);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 10px;
+        }
+
+        .property-info h3 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .property-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .property-listing {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 0 5%;
+            }
+
+            nav a {
+                padding: 12px 15px;
+            }
+
+            .property-card img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .property-listing {
+                grid-template-columns: 1fr;
+                margin: 0 5%;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .property-card img {
+                height: 180px;
+            }
+        }
+
+        /* Popup Modal Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            position: relative;
+        }
+
+        .popup-content img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .popup-content .slideshow-container {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .popup-content .slide {
+            display: none;
+        }
+
+        .popup-content .active {
+            display: block;
+        }
+
+        .popup-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .popup-content .contact-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .popup-content .contact-btn:hover {
+            background-color: #cc0000;
+        }
+
+        /* Navigation buttons for slideshow */
+        .popup-content .prev, .popup-content .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .popup-content .prev {
+            left: 10px;
+        }
+
+        .popup-content .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Real Estate Broker</h1>
+        <p>Your trusted partner in finding the best properties</p>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Properties</a>
+        <a href="#" id="about">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Property Listings Section -->
+    <section class="property-listing">
+        <div class="property-card" onclick="showPopup('property1')">
+            <img src="rao interior img.jpg" alt="Property 1">
+            <div class="property-info">
+                <h3>Modern 2-Bedroom Apartment</h3>
+                <p>Location: Downtown City</p>
+                <p>Price: $350,000</p>
+            </div>
+        </div>
+
+        <div class="property-card" onclick="showPopup('property2')">
+            <img src="rao interior img.jpg" alt="Property 2">
+            <div class="property-info">
+                <h3>Luxury Villa</h3>
+                <p>Location: Beverly Hills</p>
+                <p>Price: $1.5M</p>
+            </div>
+        </div>
+
+        <div class="property-card" onclick="showPopup('property3')">
+            <img src="rao interior img.jpg" alt="Property 3">
+            <div class="property-info">
+                <h3>Cozy 1-Bedroom Apartment</h3>
+                <p>Location: Uptown</p>
+                <p>Price: $250,000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section style="text-align: center; padding: 10px 0;">
+        <p><strong>Rajvendra Singh Rao | 91+ 7977523959</strong></p>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="property1-popup" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('property1')">X</button>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 1 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 1 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 1 Image 3">
+                </div>
+            </div>
+            <h3>Modern 2-Bedroom Apartment</h3>
+            <p><strong>Area:</strong> 1200 sqft</p>
+            <p><strong>Price per sqft:</strong> $291.67</p>
+            <p><strong>Advantages:</strong> Close to metro, schools, shopping malls.</p>
+            <a href="tel:+917977523959" class="contact-btn">Contact Us for More</a>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div id="property2-popup" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('property2')">X</button>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 2 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 2 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 2 Image 3">
+                </div>
+            </div>
+            <h3>Luxury Villa</h3>
+            <p><strong>Area:</strong> 4500 sqft</p>
+            <p><strong>Price per sqft:</strong> $333.33</p>
+            <p><strong>Advantages:</strong> Private garden, close to schools, and railway station.</p>
+            <a href="tel:+917977523959" class="contact-btn">Contact Us for More</a>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div id="property3-popup" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('property3')">X</button>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 3 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 3 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 3 Image 3">
+                </div>
+            </div>
+            <h3>Cozy 1-Bedroom Apartment</h3>
+            <p><strong>Area:</strong> 800 sqft</p>
+            <p><strong>Price per sqft:</strong> $312.50</p>
+            <p><strong>Advantages:</strong> Located near public transport, schools, and parks.</p>
+            <a href="tel:+917977523959" class="contact-btn">Contact Us for More</a>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Real Estate Broker. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        // Function to show the popup
+        function showPopup(propertyId) {
+            document.getElementById(propertyId + '-popup').style.display = 'flex';
+        }
+
+        // Function to close the popup
+        function closePopup(propertyId) {
+            document.getElementById(propertyId + '-popup').style.display = 'none';
+        }
+
+        // Function to navigate through slides
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.popup-content .slide');
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + step + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
