@@ -77,30 +77,6 @@
             bottom: 0;
         }
 
-        @media (max-width: 768px) {
-            .flats-listing, .shop-listing, .commercial-listing {
-                margin: 0 5%;
-            }
-
-            .flats-card img, .shop-card img, .commercial-card img {
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .flats-listing, .shop-listing, .commercial-listing {
-                margin: 0 5%;
-            }
-
-            header h1 {
-                font-size: 24px;
-            }
-
-            .flats-card img, .shop-card img, .commercial-card img {
-                height: 180px;
-            }
-        }
-
         /* Popup Modal Styles */
         .popup {
             display: none;
@@ -171,27 +147,6 @@
         .shop-listing, .commercial-listing {
             margin-bottom: 50px;
         }
-
-        /* Next and Prev Button for Slider */
-        .popup-slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .popup-slider-button.prev {
-            left: 10px;
-        }
-
-        .popup-slider-button.next {
-            right: 10px;
-        }
-
     </style>
 </head>
 <body>
@@ -206,6 +161,7 @@
     <section style="margin-top: 40px;">
         <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Flats</h2>
         <div class="flats-listing">
+            <!-- Flat 1 -->
             <div class="flats-card" onclick="showPopup('flats1')">
                 <img src="rao interior img.jpg" alt="Flat 1">
                 <div class="flats-info">
@@ -214,7 +170,7 @@
                     <p>Price: $350,000</p>
                 </div>
             </div>
-
+            <!-- Flat 2 -->
             <div class="flats-card" onclick="showPopup('flats2')">
                 <img src="rao interior img.jpg" alt="Flat 2">
                 <div class="flats-info">
@@ -223,7 +179,7 @@
                     <p>Price: $1.5M</p>
                 </div>
             </div>
-
+            <!-- Flat 3 -->
             <div class="flats-card" onclick="showPopup('flats3')">
                 <img src="rao interior img.jpg" alt="Flat 3">
                 <div class="flats-info">
@@ -239,6 +195,7 @@
     <section style="margin-top: 40px;">
         <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Shops</h2>
         <div class="shop-listing">
+            <!-- Shop 1 -->
             <div class="shop-card" onclick="showPopup('shop1')">
                 <img src="rao interior img.jpg" alt="Shop 1">
                 <div class="shop-info">
@@ -247,7 +204,7 @@
                     <p>Rent: $2,000/month</p>
                 </div>
             </div>
-
+            <!-- Shop 2 -->
             <div class="shop-card" onclick="showPopup('shop2')">
                 <img src="rao interior img.jpg" alt="Shop 2">
                 <div class="shop-info">
@@ -256,7 +213,7 @@
                     <p>Rent: $5,000/month</p>
                 </div>
             </div>
-
+            <!-- Shop 3 -->
             <div class="shop-card" onclick="showPopup('shop3')">
                 <img src="rao interior img.jpg" alt="Shop 3">
                 <div class="shop-info">
@@ -272,6 +229,7 @@
     <section style="margin-top: 40px;">
         <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Commercial</h2>
         <div class="commercial-listing">
+            <!-- Commercial 1 -->
             <div class="commercial-card" onclick="showPopup('commercial1')">
                 <img src="rao interior img.jpg" alt="Commercial 1">
                 <div class="commercial-info">
@@ -280,193 +238,182 @@
                     <p>Rent: $10,000/month</p>
                 </div>
             </div>
-
+            <!-- Commercial 2 -->
             <div class="commercial-card" onclick="showPopup('commercial2')">
                 <img src="rao interior img.jpg" alt="Commercial 2">
                 <div class="commercial-info">
                     <h3>Co-Working Space</h3>
                     <p>Location: Tech Park</p>
-                    <p>Rent: $3,000/month</p>
+                    <p>Rent: $8,000/month</p>
                 </div>
             </div>
-
+            <!-- Commercial 3 -->
             <div class="commercial-card" onclick="showPopup('commercial3')">
                 <img src="rao interior img.jpg" alt="Commercial 3">
                 <div class="commercial-info">
-                    <h3>Retail Space for Rent</h3>
-                    <p>Location: Market Street</p>
-                    <p>Rent: $8,000/month</p>
+                    <h3>Retail Space in Mall</h3>
+                    <p>Location: City Mall</p>
+                    <p>Rent: $15,000/month</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Real Estate And Interior Decor Business</p>
-    </footer>
+    <!-- Popups for Flats, Shops, and Commercial -->
 
-    <!-- Popup Modals -->
-    <!-- Flats Popups -->
+    <!-- Flat 1 Popup -->
     <div id="flats1" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats1')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image 1">
-                <img src="anime shoes 1.webp" class="popup-slide" alt="Flat 1 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('flats1', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('flats1', 1)">&#10095;</button>
+            <h3>Name: Modern 2-Bedroom Apartment</h3>
+            <p>Area: 1200 sq.ft.</p>
+            <p>Price per sqft: $300</p>
+            <p>Description: A modern 2-bedroom apartment with a spacious living area located in the heart of the city.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Flat 2 Popup -->
     <div id="flats2" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats2')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('flats2', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('flats2', 1)">&#10095;</button>
+            <h3>Name: Luxury Villa</h3>
+            <p>Area: 2500 sq.ft.</p>
+            <p>Price per sqft: $600</p>
+            <p>Description: A luxury villa with a private pool and spacious garden located in Beverly Hills.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Flat 3 Popup -->
     <div id="flats3" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats3')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('flats3', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('flats3', 1)">&#10095;</button>
+            <h3>Name: Cozy 1-Bedroom Apartment</h3>
+            <p>Area: 800 sq.ft.</p>
+            <p>Price per sqft: $350</p>
+            <p>Description: A cozy 1-bedroom apartment perfect for singles or couples in a central location.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- Shops Popups -->
+    <!-- Shop 1 Popup -->
     <div id="shop1" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('shop1')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('shop1', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('shop1', 1)">&#10095;</button>
+            <h3>Name: Shop for Rent</h3>
+            <p>Area: 600 sq.ft.</p>
+            <p>Rent per sqft: $30</p>
+            <p>Description: A shop located in a busy area, perfect for retail business.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Shop 2 Popup -->
     <div id="shop2" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('shop2')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('shop2', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('shop2', 1)">&#10095;</button>
+            <h3>Name: Retail Space</h3>
+            <p>Area: 800 sq.ft.</p>
+            <p>Rent per sqft: $35</p>
+            <p>Description: Retail space located on a prime street with excellent foot traffic.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Shop 3 Popup -->
     <div id="shop3" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('shop3')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('shop3', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('shop3', 1)">&#10095;</button>
+            <h3>Name: Commercial Shop</h3>
+            <p>Area: 900 sq.ft.</p>
+            <p>Rent per sqft: $40</p>
+            <p>Description: Spacious commercial shop with ample parking space in a popular location.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- Commercial Popups -->
+    <!-- Commercial 1 Popup -->
     <div id="commercial1" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('commercial1')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('commercial1', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('commercial1', 1)">&#10095;</button>
+            <h3>Name: Commercial Office Space</h3>
+            <p>Area: 1500 sq.ft.</p>
+            <p>Rent per sqft: $50</p>
+            <p>Description: A modern office space in a high-rise building located in the business district.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Commercial 2 Popup -->
     <div id="commercial2" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('commercial2')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('commercial2', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('commercial2', 1)">&#10095;</button>
+            <h3>Name: Co-Working Space</h3>
+            <p>Area: 1200 sq.ft.</p>
+            <p>Rent per sqft: $60</p>
+            <p>Description: A flexible co-working space ideal for startups and small businesses in a growing tech park.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
+    <!-- Commercial 3 Popup -->
     <div id="commercial3" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('commercial3')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 1">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 2">
-                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 3">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image">
             </div>
-            <button class="popup-slider-button prev" onclick="moveSlide('commercial3', -1)">&#10094;</button>
-            <button class="popup-slider-button next" onclick="moveSlide('commercial3', 1)">&#10095;</button>
+            <h3>Name: Retail Space in Mall</h3>
+            <p>Area: 1000 sq.ft.</p>
+            <p>Rent per sqft: $25</p>
+            <p>Description: A retail space located in a high-traffic mall, ideal for any business looking to attract customers.</p>
             <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- JavaScript to handle popup slider functionality -->
+    <!-- Footer Section -->
+    <footer>
+        <p>Rajvendra Singh Rao | 91+ 7977523959</p>
+    </footer>
+
     <script>
+        // Function to show a popup
         function showPopup(id) {
-            // Display the popup
             document.getElementById(id).style.display = 'flex';
-            let slides = document.querySelectorAll(`#${id} .popup-slider .popup-slide`);
-            slides.forEach((slide, index) => {
-                slide.style.display = (index === 0) ? 'block' : 'none';
-            });
         }
 
+        // Function to close a popup
         function closePopup(id) {
             document.getElementById(id).style.display = 'none';
         }
-
-        function moveSlide(popupId, direction) {
-            let slides = document.querySelectorAll(`#${popupId} .popup-slider .popup-slide`);
-            let currentSlide = Array.from(slides).findIndex(slide => slide.style.display === 'block');
-            currentSlide += direction;
-
-            if (currentSlide < 0) {
-                currentSlide = slides.length - 1;
-            }
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-
-            slides.forEach(slide => slide.style.display = 'none');
-            slides[currentSlide].style.display = 'block';
-        }
     </script>
-
 </body>
 </html>
