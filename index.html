@@ -27,14 +27,16 @@
         }
 
         nav a {
-            color: #333; /* Change all links to the same color as header background */
+            color: #333;
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav a:hover {
             background-color: #575757;
+            color: white;
         }
 
         .property-listing {
@@ -88,7 +90,6 @@
             bottom: 0;
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 768px) {
             .property-listing {
                 grid-template-columns: repeat(2, 1fr);
@@ -183,10 +184,11 @@
             border-radius: 50%;
             padding: 10px;
             cursor: pointer;
+            z-index: 10;
         }
 
         .popup-content .contact-btn {
-            background-color: #ff0000;
+            background-color: #333;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -198,16 +200,37 @@
         }
 
         .popup-content .contact-btn:hover {
-            background-color: #cc0000;
+            background-color: #575757;
         }
 
+        /* Navigation buttons for slideshow */
+        .popup-content .prev, .popup-content .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .popup-content .prev {
+            left: 10px;
+        }
+
+        .popup-content .next {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <h1>Real Estate And Interior Decor Business</h1>
+        <h1>Real Estate Broker</h1>
         <p>Your trusted partner in finding the best properties</p>
     </header>
 
@@ -215,7 +238,7 @@
     <nav>
         <a href="#">Home</a>
         <a href="#">Properties</a>
-        <a href="#" id="about">About Us</a>
+        <a href="#">About Us</a>
         <a href="#">Contact</a>
     </nav>
 
@@ -264,6 +287,8 @@
                     <img class="popup-image" data-src="property3.jpg" alt="Property 1 Image 3">
                 </div>
             </div>
+            <button class="prev" onclick="changeSlide('property1', -1)">&#10094;</button>
+            <button class="next" onclick="changeSlide('property1', 1)">&#10095;</button>
             <h3>Modern 2-Bedroom Apartment</h3>
             <p><strong>Area:</strong> 1200 sqft</p>
             <p><strong>Price per sqft:</strong> $291.67</p>
@@ -286,6 +311,8 @@
                     <img class="popup-image" data-src="property3.jpg" alt="Property 2 Image 3">
                 </div>
             </div>
+            <button class="prev" onclick="changeSlide('property2', -1)">&#10094;</button>
+            <button class="next" onclick="changeSlide('property2', 1)">&#10095;</button>
             <h3>Luxury Villa</h3>
             <p><strong>Area:</strong> 4500 sqft</p>
             <p><strong>Price per sqft:</strong> $333.33</p>
@@ -308,6 +335,8 @@
                     <img class="popup-image" data-src="property3.jpg" alt="Property 3 Image 3">
                 </div>
             </div>
+            <button class="prev" onclick="changeSlide('property3', -1)">&#10094;</button>
+            <button class="next" onclick="changeSlide('property3', 1)">&#10095;</button>
             <h3>Cozy 1-Bedroom Apartment</h3>
             <p><strong>Area:</strong> 800 sqft</p>
             <p><strong>Price per sqft:</strong> $312.50</p>
@@ -342,14 +371,23 @@
             popup.style.display = 'none';
         }
 
-        // Slide show logic
-        const slides = document.querySelectorAll('.popup-content .slide');
-
-        setInterval(() => {
+        // Function to change slides manually
+        function changeSlide(propertyId, direction) {
+            const popup = document.getElementById(propertyId + '-popup');
+            const slides = popup.querySelectorAll('.slide');
             slides[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % slides.length;
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
             slides[currentIndex].classList.add('active');
-        }, 3000);
+        }
+
+        // Automatic slide show logic
+        const slideInterval = 3000; // Slide every 3 seconds
+        setInterval(() => {
+            changeSlide('property1', 1);
+            changeSlide('property2', 1);
+            changeSlide('property3', 1);
+        }, slideInterval);
+
     </script>
 
 </body>
