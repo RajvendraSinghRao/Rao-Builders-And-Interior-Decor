@@ -23,8 +23,8 @@
         nav {
             display: flex;
             justify-content: center;
+            gap: 15px;
             margin-top: 10px;
-            gap: 15px; /* Ensure some spacing between links */
         }
 
         nav a {
@@ -52,12 +52,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: transform 0.3s ease;
             cursor: pointer;
-        }
-
-        .property-card:hover {
-            transform: scale(1.05);
         }
 
         .property-card img {
@@ -96,14 +91,6 @@
                 grid-template-columns: repeat(2, 1fr);
                 margin: 0 5%;
             }
-
-            nav a {
-                padding: 12px 15px;
-            }
-
-            .property-card img {
-                height: 180px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -113,9 +100,8 @@
             }
 
             nav {
-                /* Make sure the links stay horizontal */
                 flex-direction: row;
-                justify-content: center; /* Ensure they stay centered on small screens */
+                justify-content: center;
             }
 
             nav a {
@@ -125,10 +111,6 @@
 
             header h1 {
                 font-size: 24px;
-            }
-
-            .property-card img {
-                height: 180px;
             }
         }
 
@@ -165,8 +147,8 @@
 
         .popup-content .close {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: -15px;
+            left: -15px;
             background-color: #333;
             color: #fff;
             border: none;
@@ -175,12 +157,8 @@
             cursor: pointer;
         }
 
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-        }
-
-        .popup-content .prev, .popup-content .next {
+        .popup-content .prev,
+        .popup-content .next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -212,6 +190,7 @@
             text-align: center;
             display: inline-block;
             text-decoration: none;
+            margin-top: 10px;
         }
 
         .popup-content .contact-btn:hover {
@@ -230,7 +209,7 @@
     <!-- Navigation Section -->
     <nav>
         <a href="#">Home</a>
-        <a href="#" id="about">About Us</a>
+        <a href="#">About Us</a>
     </nav>
 
     <!-- Property Listings Section -->
