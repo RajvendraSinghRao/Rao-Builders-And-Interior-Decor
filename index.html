@@ -30,36 +30,36 @@
         }
 
         nav a {
-            color: #fff;
+            color: #333; /* Change link text color to match header background */
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
         }
 
         nav a:hover {
-            background-color: #575757; /* Keep background color effect */
-            color: #fff; /* Keep text color white */
+            background-color: #575757;
+            color: #fff; /* Keep text white on hover */
         }
 
         /* Horizontal Scrollable Flats Cards */
         .flats-listing, .shop-listing {
             display: flex;
-            overflow-x: auto; /* Allow horizontal scrolling */
+            overflow-x: auto;
             gap: 20px;
             padding: 20px;
             margin: 0 10%;
-            scroll-snap-type: x mandatory; /* Enable smooth snapping to each card */
+            scroll-snap-type: x mandatory;
         }
 
         .flats-card, .shop-card {
-            flex: 0 0 auto; /* Prevent the cards from shrinking or stretching */
+            flex: 0 0 auto;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s ease;
             cursor: pointer;
-            scroll-snap-align: center; /* Ensure cards align to the center when scrolling */
+            scroll-snap-align: center;
         }
 
         .flats-card:hover, .shop-card:hover {
@@ -77,7 +77,7 @@
         }
 
         .flats-info h3, .shop-info h3 {
-            font-size: 16px; /* Reduced size */
+            font-size: 16px;
             color: #333;
         }
 
@@ -96,7 +96,6 @@
             bottom: 0;
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 768px) {
             .flats-listing, .shop-listing {
                 margin: 0 5%;
@@ -182,7 +181,7 @@
         }
 
         .popup-content .contact-btn {
-            background-color: #333; /* Matching header color */
+            background-color: #333;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -235,7 +234,7 @@
 
     <!-- Flats List Section -->
     <section style="margin-top: 40px;">
-        <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Flats</h2> <!-- Reduced padding and size -->
+        <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Flats</h2>
         <div class="flats-listing">
             <div class="flats-card" onclick="showPopup('flats1')">
                 <img src="rao interior img.jpg" alt="Flat 1">
@@ -269,7 +268,7 @@
 
     <!-- Shops Section -->
     <section style="margin-top: 40px;">
-        <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Shops</h2> <!-- Reduced padding and size -->
+        <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Shops</h2>
         <div class="shop-listing">
             <div class="shop-card" onclick="showPopup('shop1')">
                 <img src="rao interior img.jpg" alt="Shop 1">
