@@ -20,8 +20,8 @@
             padding: 1rem 0;
         }
 
-        /* Horizontal Scrollable Flats Cards */
-        .flats-listing, .shop-listing {
+        /* Horizontal Scrollable Cards */
+        .flats-listing, .shop-listing, .commercial-listing {
             display: flex;
             overflow-x: auto;
             gap: 20px;
@@ -32,7 +32,7 @@
             -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
 
-        .flats-card, .shop-card {
+        .flats-card, .shop-card, .commercial-card {
             flex: 0 0 auto;
             background-color: #fff;
             border-radius: 8px;
@@ -43,26 +43,26 @@
             scroll-snap-align: center;
         }
 
-        .flats-card:hover, .shop-card:hover {
+        .flats-card:hover, .shop-card:hover, .commercial-card:hover {
             transform: scale(1.05);
         }
 
-        .flats-card img, .shop-card img {
+        .flats-card img, .shop-card img, .commercial-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .flats-info, .shop-info {
+        .flats-info, .shop-info, .commercial-info {
             padding: 10px;
         }
 
-        .flats-info h3, .shop-info h3 {
+        .flats-info h3, .shop-info h3, .commercial-info h3 {
             font-size: 16px;
             color: #333;
         }
 
-        .flats-info p, .shop-info p {
+        .flats-info p, .shop-info p, .commercial-info p {
             font-size: 14px;
             color: #666;
         }
@@ -78,17 +78,17 @@
         }
 
         @media (max-width: 768px) {
-            .flats-listing, .shop-listing {
+            .flats-listing, .shop-listing, .commercial-listing {
                 margin: 0 5%;
             }
 
-            .flats-card img, .shop-card img {
+            .flats-card img, .shop-card img, .commercial-card img {
                 height: 180px;
             }
         }
 
         @media (max-width: 480px) {
-            .flats-listing, .shop-listing {
+            .flats-listing, .shop-listing, .commercial-listing {
                 margin: 0 5%;
             }
 
@@ -96,7 +96,7 @@
                 font-size: 24px;
             }
 
-            .flats-card img, .shop-card img {
+            .flats-card img, .shop-card img, .commercial-card img {
                 height: 180px;
             }
         }
@@ -186,8 +186,8 @@
             background: #555;
         }
 
-        /* Space below the shop list */
-        .shop-listing {
+        /* Space below the shop and commercial list */
+        .shop-listing, .commercial-listing {
             margin-bottom: 50px;  /* Added bottom margin */
         }
 
@@ -269,6 +269,40 @@
         <div class="scroll-bar"></div>
     </section>
 
+    <!-- Commercial Section -->
+    <section style="margin-top: 40px;">
+        <h2 style="text-align: center; font-size: 20px; padding: 10px 0; margin: 0;">Commercial</h2>
+        <div class="commercial-listing">
+            <div class="commercial-card" onclick="showPopup('commercial1')">
+                <img src="rao interior img.jpg" alt="Commercial 1">
+                <div class="commercial-info">
+                    <h3>Commercial Office Space</h3>
+                    <p>Location: Business District</p>
+                    <p>Rent: $10,000/month</p>
+                </div>
+            </div>
+
+            <div class="commercial-card" onclick="showPopup('commercial2')">
+                <img src="rao interior img.jpg" alt="Commercial 2">
+                <div class="commercial-info">
+                    <h3>Co-Working Space</h3>
+                    <p>Location: Tech Park</p>
+                    <p>Rent: $3,000/month</p>
+                </div>
+            </div>
+
+            <div class="commercial-card" onclick="showPopup('commercial3')">
+                <img src="rao interior img.jpg" alt="Commercial 3">
+                <div class="commercial-info">
+                    <h3>Retail and Office Space</h3>
+                    <p>Location: City Center</p>
+                    <p>Rent: $7,500/month</p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-bar"></div>
+    </section>
+
     <!-- Popup Modals for Flats -->
     <div id="flats1-popup" class="popup">
         <div class="popup-content">
@@ -282,38 +316,6 @@
             <p><strong>Location:</strong> Downtown City</p>
             <p><strong>Price:</strong> $350,000</p>
             <p><strong>Description:</strong> A modern apartment located in the heart of the city with great amenities.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
-        </div>
-    </div>
-
-    <div id="flats2-popup" class="popup">
-        <div class="popup-content">
-            <button class="close" onclick="closePopup('flats2')">X</button>
-            <h3>Luxury Villa</h3>
-            <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Flat 1">
-                <img src="rao interior img.jpg" alt="Flat 2">
-                <img src="rao interior img.jpg" alt="Flat 3">
-            </div>
-            <p><strong>Location:</strong> Beverly Hills</p>
-            <p><strong>Price:</strong> $1.5M</p>
-            <p><strong>Description:</strong> A luxurious villa with a pool, located in a prime area of Beverly Hills.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
-        </div>
-    </div>
-
-    <div id="flats3-popup" class="popup">
-        <div class="popup-content">
-            <button class="close" onclick="closePopup('flats3')">X</button>
-            <h3>Cozy 1-Bedroom Apartment</h3>
-            <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Flat 1">
-                <img src="rao interior img.jpg" alt="Flat 2">
-                <img src="rao interior img.jpg" alt="Flat 3">
-            </div>
-            <p><strong>Location:</strong> Uptown</p>
-            <p><strong>Price:</strong> $250,000</p>
-            <p><strong>Description:</strong> A cozy apartment perfect for a single person or a couple, located in a prime neighborhood.</p>
             <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
         </div>
     </div>
@@ -335,34 +337,19 @@
         </div>
     </div>
 
-    <div id="shop2-popup" class="popup">
+    <!-- Popup Modals for Commercial -->
+    <div id="commercial1-popup" class="popup">
         <div class="popup-content">
-            <button class="close" onclick="closePopup('shop2')">X</button>
-            <h3>Retail Space</h3>
+            <button class="close" onclick="closePopup('commercial1')">X</button>
+            <h3>Commercial Office Space</h3>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Shop 1">
-                <img src="rao interior img.jpg" alt="Shop 2">
-                <img src="rao interior img.jpg" alt="Shop 3">
+                <img src="rao interior img.jpg" alt="Commercial 1">
+                <img src="rao interior img.jpg" alt="Commercial 2">
+                <img src="rao interior img.jpg" alt="Commercial 3">
             </div>
-            <p><strong>Location:</strong> Main Street</p>
-            <p><strong>Rent:</strong> $5,000/month</p>
-            <p><strong>Description:</strong> Prime location for retail with high foot traffic.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
-        </div>
-    </div>
-
-    <div id="shop3-popup" class="popup">
-        <div class="popup-content">
-            <button class="close" onclick="closePopup('shop3')">X</button>
-            <h3>Commercial Shop</h3>
-            <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Shop 1">
-                <img src="rao interior img.jpg" alt="Shop 2">
-                <img src="rao interior img.jpg" alt="Shop 3">
-            </div>
-            <p><strong>Location:</strong> Mall Road</p>
-            <p><strong>Rent:</strong> $3,500/month</p>
-            <p><strong>Description:</strong> Spacious shop available for various commercial purposes.</p>
+            <p><strong>Location:</strong> Business District</p>
+            <p><strong>Rent:</strong> $10,000/month</p>
+            <p><strong>Description:</strong> A spacious office in a business-centric area.</p>
             <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
         </div>
     </div>
