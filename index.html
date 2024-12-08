@@ -27,7 +27,7 @@
         }
 
         nav a {
-            color: #fff;
+            color: #333; /* Change all links to the same color as header background */
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
@@ -35,10 +35,6 @@
 
         nav a:hover {
             background-color: #575757;
-        }
-
-        nav a#about {
-            background-color: #333; /* Same color as header for About Us link */
         }
 
         .property-listing {
@@ -153,7 +149,8 @@
             border-radius: 8px;
             width: 80%;
             max-width: 600px;
-            text-align: center;
+            text-align: left;
+            position: relative;
         }
 
         .popup-content img {
@@ -163,17 +160,20 @@
             margin-bottom: 10px;
         }
 
-        .popup-content h3 {
-            color: #333;
+        .popup-content .slideshow-container {
+            position: relative;
+            max-width: 100%;
         }
 
-        .popup-content p {
-            font-size: 14px;
-            color: #666;
-            margin: 10px 0;
+        .popup-content .slide {
+            display: none;
         }
 
-        .popup .close {
+        .popup-content .active {
+            display: block;
+        }
+
+        .popup-content .close {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -183,6 +183,22 @@
             border-radius: 50%;
             padding: 10px;
             cursor: pointer;
+        }
+
+        .popup-content .contact-btn {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .popup-content .contact-btn:hover {
+            background-color: #cc0000;
         }
 
     </style>
@@ -215,7 +231,7 @@
         </div>
 
         <div class="property-card" onclick="showPopup('property2')">
-            <img src="property2.jpg" alt="Property 2">
+            <img src="rao interior img.jpg" alt="Property 2">
             <div class="property-info">
                 <h3>Luxury Villa</h3>
                 <p>Location: Beverly Hills</p>
@@ -224,7 +240,7 @@
         </div>
 
         <div class="property-card" onclick="showPopup('property3')">
-            <img src="property3.jpg" alt="Property 3">
+            <img src="rao interior img.jpg" alt="Property 3">
             <div class="property-info">
                 <h3>Cozy 1-Bedroom Apartment</h3>
                 <p>Location: Uptown</p>
@@ -237,33 +253,66 @@
     <div id="property1-popup" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('property1')">X</button>
-            <img src="rao interior img.jpg" alt="Property 1">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 1 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 1 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 1 Image 3">
+                </div>
+            </div>
             <h3>Modern 2-Bedroom Apartment</h3>
             <p><strong>Area:</strong> 1200 sqft</p>
             <p><strong>Price per sqft:</strong> $291.67</p>
             <p><strong>Advantages:</strong> Close to metro, schools, shopping malls.</p>
+            <a href="tel:+1234567890" class="contact-btn">Contact Us for More</a>
         </div>
     </div>
 
     <div id="property2-popup" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('property2')">X</button>
-            <img src="property2.jpg" alt="Property 2">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 2 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 2 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 2 Image 3">
+                </div>
+            </div>
             <h3>Luxury Villa</h3>
             <p><strong>Area:</strong> 4500 sqft</p>
             <p><strong>Price per sqft:</strong> $333.33</p>
             <p><strong>Advantages:</strong> Private garden, close to schools, and railway station.</p>
+            <a href="tel:+1234567890" class="contact-btn">Contact Us for More</a>
         </div>
     </div>
 
     <div id="property3-popup" class="popup">
         <div class="popup-content">
             <button class="close" onclick="closePopup('property3')">X</button>
-            <img src="property3.jpg" alt="Property 3">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="rao interior img.jpg" alt="Property 3 Image 1">
+                </div>
+                <div class="slide">
+                    <img src="property2.jpg" alt="Property 3 Image 2">
+                </div>
+                <div class="slide">
+                    <img src="property3.jpg" alt="Property 3 Image 3">
+                </div>
+            </div>
             <h3>Cozy 1-Bedroom Apartment</h3>
             <p><strong>Area:</strong> 800 sqft</p>
             <p><strong>Price per sqft:</strong> $312.50</p>
             <p><strong>Advantages:</strong> Located near public transport, schools, and parks.</p>
+            <a href="tel:+1234567890" class="contact-btn">Contact Us for More</a>
         </div>
     </div>
 
@@ -273,6 +322,8 @@
     </footer>
 
     <script>
+        let currentIndex = 0;
+
         // Function to show the popup
         function showPopup(propertyId) {
             document.getElementById(propertyId + '-popup').style.display = 'flex';
@@ -282,7 +333,17 @@
         function closePopup(propertyId) {
             document.getElementById(propertyId + '-popup').style.display = 'none';
         }
+
+        // Slide show logic
+        const slides = document.querySelectorAll('.popup-content .slide');
+
+        setInterval(() => {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }, 3000);
     </script>
 
 </body>
 </html>
+
