@@ -117,6 +117,7 @@
             nav a {
                 padding: 10px 15px;
                 font-size: 14px;
+                display: inline-block;
             }
 
             header h1 {
@@ -152,11 +153,17 @@
             position: relative;
         }
 
-        .popup-content img {
+        .popup-content .popup-slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .popup-content .popup-slider img {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            margin-bottom: 10px;
         }
 
         .popup-content .close {
@@ -185,6 +192,26 @@
 
         .popup-content .contact-btn:hover {
             background-color: #575757;
+        }
+
+        .scroll-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .scroll-bar::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .scroll-bar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .scroll-bar::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
     </style>
@@ -234,6 +261,7 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-bar"></div>
     </section>
 
     <!-- Shops Section -->
@@ -267,6 +295,7 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-bar"></div>
     </section>
 
     <!-- Popup Modals for Flats -->
@@ -274,7 +303,11 @@
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats1')">X</button>
             <h3>Modern 2-Bedroom Apartment</h3>
-            <img src="rao interior img.jpg" alt="Flat 1">
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" alt="Flat 1">
+                <img src="rao interior img.jpg" alt="Flat 2">
+                <img src="rao interior img.jpg" alt="Flat 3">
+            </div>
             <p><strong>Location:</strong> Downtown City</p>
             <p><strong>Price:</strong> $350,000</p>
             <p><strong>Description:</strong> A modern apartment located in the heart of the city with great amenities.</p>
@@ -286,7 +319,11 @@
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats2')">X</button>
             <h3>Luxury Villa</h3>
-            <img src="rao interior img.jpg" alt="Flat 2">
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" alt="Flat 1">
+                <img src="rao interior img.jpg" alt="Flat 2">
+                <img src="rao interior img.jpg" alt="Flat 3">
+            </div>
             <p><strong>Location:</strong> Beverly Hills</p>
             <p><strong>Price:</strong> $1.5M</p>
             <p><strong>Description:</strong> A luxurious villa with a pool, located in a prime area of Beverly Hills.</p>
@@ -298,7 +335,11 @@
         <div class="popup-content">
             <button class="close" onclick="closePopup('flats3')">X</button>
             <h3>Cozy 1-Bedroom Apartment</h3>
-            <img src="rao interior img.jpg" alt="Flat 3">
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" alt="Flat 1">
+                <img src="rao interior img.jpg" alt="Flat 2">
+                <img src="rao interior img.jpg" alt="Flat 3">
+            </div>
             <p><strong>Location:</strong> Uptown</p>
             <p><strong>Price:</strong> $250,000</p>
             <p><strong>Description:</strong> A cozy apartment perfect for a single person or a couple, located in a prime neighborhood.</p>
