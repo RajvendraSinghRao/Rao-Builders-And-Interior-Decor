@@ -233,7 +233,6 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-bar"></div>
     </section>
 
     <!-- Shops Section -->
@@ -267,7 +266,6 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-bar"></div>
     </section>
 
     <!-- Commercial Section -->
@@ -295,88 +293,167 @@
             <div class="commercial-card" onclick="showPopup('commercial3')">
                 <img src="rao interior img.jpg" alt="Commercial 3">
                 <div class="commercial-info">
-                    <h3>Retail and Office Space</h3>
-                    <p>Location: City Center</p>
-                    <p>Rent: $7,500/month</p>
+                    <h3>Retail Space for Rent</h3>
+                    <p>Location: Market Street</p>
+                    <p>Rent: $8,000/month</p>
                 </div>
             </div>
         </div>
-        <div class="scroll-bar"></div>
     </section>
 
-    <!-- Popup Modals with Image Slider for Flats -->
-    <div id="flats1-popup" class="popup">
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Real Estate And Interior Decor Business</p>
+    </footer>
+
+    <!-- Popup Modals -->
+    <!-- Flats Popups -->
+    <div id="flats1" class="popup">
         <div class="popup-content">
-            <button class="close" onclick="closePopup('flats1')">X</button>
-            <h3>Modern 2-Bedroom Apartment</h3>
+            <button class="close" onclick="closePopup('flats1')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Flat 1" class="popup-slide">
-                <img src="anime shoes 1.webp" alt="Flat 2" class="popup-slide">
-                <img src="rao interior img.jpg" alt="Flat 3" class="popup-slide">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image 1">
+                <img src="anime shoes 1.webp" class="popup-slide" alt="Flat 1 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 1 Image 3">
             </div>
             <button class="popup-slider-button prev" onclick="moveSlide('flats1', -1)">&#10094;</button>
             <button class="popup-slider-button next" onclick="moveSlide('flats1', 1)">&#10095;</button>
-            <p><strong>Location:</strong> Downtown City</p>
-            <p><strong>Price:</strong> $350,000</p>
-            <p><strong>Description:</strong> A modern apartment located in the heart of the city with great amenities.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- Same for Shops and Commercial -->
-    <div id="shop1-popup" class="popup">
+    <div id="flats2" class="popup">
         <div class="popup-content">
-            <button class="close" onclick="closePopup('shop1')">X</button>
-            <h3>Shop for Rent - City Center</h3>
+            <button class="close" onclick="closePopup('flats2')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Shop 1" class="popup-slide">
-                <img src="rao interior img.jpg" alt="Shop 2" class="popup-slide">
-                <img src="rao interior img.jpg" alt="Shop 3" class="popup-slide">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 2 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('flats2', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('flats2', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <div id="flats3" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('flats3')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Flat 3 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('flats3', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('flats3', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Shops Popups -->
+    <div id="shop1" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('shop1')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 1 Image 3">
             </div>
             <button class="popup-slider-button prev" onclick="moveSlide('shop1', -1)">&#10094;</button>
             <button class="popup-slider-button next" onclick="moveSlide('shop1', 1)">&#10095;</button>
-            <p><strong>Location:</strong> City Center</p>
-            <p><strong>Rent:</strong> $2,000/month</p>
-            <p><strong>Description:</strong> Ideal location for retail or office space.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <div id="commercial1-popup" class="popup">
+    <div id="shop2" class="popup">
         <div class="popup-content">
-            <button class="close" onclick="closePopup('commercial1')">X</button>
-            <h3>Commercial Office Space</h3>
+            <button class="close" onclick="closePopup('shop2')">&times;</button>
             <div class="popup-slider">
-                <img src="rao interior img.jpg" alt="Commercial 1" class="popup-slide">
-                <img src="rao interior img.jpg" alt="Commercial 2" class="popup-slide">
-                <img src="rao interior img.jpg" alt="Commercial 3" class="popup-slide">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 2 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('shop2', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('shop2', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <div id="shop3" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('shop3')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Shop 3 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('shop3', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('shop3', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Commercial Popups -->
+    <div id="commercial1" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('commercial1')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 1 Image 3">
             </div>
             <button class="popup-slider-button prev" onclick="moveSlide('commercial1', -1)">&#10094;</button>
             <button class="popup-slider-button next" onclick="moveSlide('commercial1', 1)">&#10095;</button>
-            <p><strong>Location:</strong> Business District</p>
-            <p><strong>Rent:</strong> $10,000/month</p>
-            <p><strong>Description:</strong> A spacious office in a business-centric area.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <footer>
-        Rajvendra Singh Rao | 91+ 7977523959
-    </footer>
+    <div id="commercial2" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('commercial2')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 2 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('commercial2', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('commercial2', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
 
+    <div id="commercial3" class="popup">
+        <div class="popup-content">
+            <button class="close" onclick="closePopup('commercial3')">&times;</button>
+            <div class="popup-slider">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 1">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 2">
+                <img src="rao interior img.jpg" class="popup-slide" alt="Commercial 3 Image 3">
+            </div>
+            <button class="popup-slider-button prev" onclick="moveSlide('commercial3', -1)">&#10094;</button>
+            <button class="popup-slider-button next" onclick="moveSlide('commercial3', 1)">&#10095;</button>
+            <a href="contact.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle popup slider functionality -->
     <script>
-        let currentSlide = 0;
-        
         function showPopup(id) {
-            document.getElementById(id + '-popup').style.display = 'flex';
+            // Display the popup
+            document.getElementById(id).style.display = 'flex';
+            let slides = document.querySelectorAll(`#${id} .popup-slider .popup-slide`);
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === 0) ? 'block' : 'none';
+            });
         }
 
         function closePopup(id) {
-            document.getElementById(id + '-popup').style.display = 'none';
+            document.getElementById(id).style.display = 'none';
         }
 
         function moveSlide(popupId, direction) {
             let slides = document.querySelectorAll(`#${popupId} .popup-slider .popup-slide`);
+            let currentSlide = Array.from(slides).findIndex(slide => slide.style.display === 'block');
             currentSlide += direction;
 
             if (currentSlide < 0) {
@@ -386,18 +463,10 @@
                 currentSlide = 0;
             }
 
-            // Hide all slides
             slides.forEach(slide => slide.style.display = 'none');
-            // Show the current slide
             slides[currentSlide].style.display = 'block';
         }
-
-        // Initialize the first slide to be visible
-        document.querySelectorAll('.popup-slider').forEach(slider => {
-            let slides = slider.querySelectorAll('.popup-slide');
-            slides.forEach(slide => slide.style.display = 'none');
-            slides[0].style.display = 'block';
-        });
     </script>
+
 </body>
 </html>
