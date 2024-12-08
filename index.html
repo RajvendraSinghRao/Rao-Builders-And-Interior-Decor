@@ -148,7 +148,7 @@
         .popup-content .close {
             position: absolute;
             top: -15px;
-            left: -15px;
+            right: -15px;
             background-color: #333;
             color: #fff;
             border: none;
@@ -335,7 +335,7 @@
 
         // Function to navigate through slides
         function moveSlide(step) {
-            const slides = document.querySelectorAll('.popup-content .slide');
+            const slides = document.querySelectorAll(`#${event.target.closest('.popup').id} .slide`);
             slides[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + step + slides.length) % slides.length;
             slides[currentIndex].classList.add('active');
