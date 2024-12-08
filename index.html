@@ -24,6 +24,7 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            gap: 15px; /* Ensure some spacing between links */
         }
 
         nav a {
@@ -112,8 +113,9 @@
             }
 
             nav {
-                flex-direction: column;
-                align-items: center;
+                /* Make sure the links stay horizontal */
+                flex-direction: row;
+                justify-content: center; /* Ensure they stay centered on small screens */
             }
 
             nav a {
@@ -161,23 +163,10 @@
             margin-bottom: 10px;
         }
 
-        .popup-content .slideshow-container {
-            position: relative;
-            max-width: 100%;
-        }
-
-        .popup-content .slide {
-            display: none;
-        }
-
-        .popup-content .active {
-            display: block;
-        }
-
         .popup-content .close {
             position: absolute;
             top: 10px;
-            right: 10px;
+            left: 10px;
             background-color: #333;
             color: #fff;
             border: none;
@@ -186,23 +175,11 @@
             cursor: pointer;
         }
 
-        .popup-content .contact-btn {
-            background-color: red;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            display: inline-block;
-            text-decoration: none;
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
         }
 
-        .popup-content .contact-btn:hover {
-            background-color: #cc0000;
-        }
-
-        /* Navigation buttons for slideshow */
         .popup-content .prev, .popup-content .next {
             position: absolute;
             top: 50%;
@@ -222,6 +199,23 @@
 
         .popup-content .next {
             right: 10px;
+        }
+
+        /* Contact Us button with header color */
+        .popup-content .contact-btn {
+            background-color: #333; /* Same color as header */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .popup-content .contact-btn:hover {
+            background-color: #575757;
         }
     </style>
 </head>
