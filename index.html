@@ -23,7 +23,6 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 15px;
             margin-top: 10px;
         }
 
@@ -39,20 +38,29 @@
             color: #fff;
         }
 
+        /* Horizontal Scrollable Property Cards */
         .property-listing {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            overflow-x: auto; /* Allow horizontal scrolling */
             gap: 20px;
             padding: 20px;
             margin: 0 10%;
+            scroll-snap-type: x mandatory; /* Enable smooth snapping to each card */
         }
 
         .property-card {
+            flex: 0 0 auto; /* Prevent the cards from shrinking or stretching */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            transition: transform 0.3s ease;
             cursor: pointer;
+            scroll-snap-align: center; /* Ensure cards align to the center when scrolling */
+        }
+
+        .property-card:hover {
+            transform: scale(1.05);
         }
 
         .property-card img {
@@ -88,20 +96,22 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .property-listing {
-                grid-template-columns: repeat(2, 1fr);
                 margin: 0 5%;
+            }
+
+            .property-card img {
+                height: 180px;
             }
         }
 
         @media (max-width: 480px) {
             .property-listing {
-                grid-template-columns: 1fr;
                 margin: 0 5%;
             }
 
             nav {
-                flex-direction: row;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
             }
 
             nav a {
@@ -111,6 +121,10 @@
 
             header h1 {
                 font-size: 24px;
+            }
+
+            .property-card img {
+                height: 180px;
             }
         }
 
@@ -145,10 +159,23 @@
             margin-bottom: 10px;
         }
 
+        .popup-content .slideshow-container {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .popup-content .slide {
+            display: none;
+        }
+
+        .popup-content .active {
+            display: block;
+        }
+
         .popup-content .close {
             position: absolute;
-            top: -15px;
-            right: -15px;
+            top: 10px;
+            right: 10px;
             background-color: #333;
             color: #fff;
             border: none;
@@ -157,8 +184,24 @@
             cursor: pointer;
         }
 
-        .popup-content .prev,
-        .popup-content .next {
+        .popup-content .contact-btn {
+            background-color: #333; /* Matching header color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .popup-content .contact-btn:hover {
+            background-color: #575757;
+        }
+
+        /* Navigation buttons for slideshow */
+        .popup-content .prev, .popup-content .next {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -178,33 +221,6 @@
         .popup-content .next {
             right: 10px;
         }
-
-        /* Contact Us button with header color */
-        .popup-content .contact-btn {
-            background-color: #333; /* Same color as header */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-
-        .popup-content .contact-btn:hover {
-            background-color: #575757;
-        }
-
-        /* Hide inactive slides */
-        .slide {
-            display: none;
-        }
-
-        .slide.active {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -218,7 +234,7 @@
     <!-- Navigation Section -->
     <nav>
         <a href="#">Home</a>
-        <a href="#">About Us</a>
+        <a href="#" id="about">About Us</a>
     </nav>
 
     <!-- Property Listings Section -->
@@ -344,7 +360,7 @@
 
         // Function to navigate through slides
         function moveSlide(step) {
-            const slides = document.querySelectorAll(`#${event.target.closest('.popup').id} .slide`);
+            const slides = document.querySelectorAll('.popup-content .slide');
             slides[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + step + slides.length) % slides.length;
             slides[currentIndex].classList.add('active');
@@ -353,3 +369,4 @@
 
 </body>
 </html>
+
