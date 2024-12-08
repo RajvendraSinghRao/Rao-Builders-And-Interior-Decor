@@ -37,8 +37,8 @@
         }
 
         nav a:hover {
-            background-color: #575757; /* Hover effect */
-            color: #fff;
+            background-color: transparent; /* Removed background color */
+            color: #fff; /* Keep the text color white on hover */
         }
 
         /* Horizontal Scrollable Flats Cards */
@@ -362,41 +362,17 @@
         </div>
     </div>
 
-    <div id="shop2-popup" class="popup">
-        <div class="popup-content">
-            <button class="close" onclick="closePopup('shop2')">X</button>
-            <h3>Retail Space - Main Street</h3>
-            <img src="rao interior img.jpg" alt="Shop 2">
-            <p><strong>Area:</strong> 1500 sqft</p>
-            <p><strong>Rent:</strong> $5,000/month</p>
-            <p><strong>Description:</strong> Large retail space in a busy shopping district.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
-        </div>
-    </div>
-
-    <div id="shop3-popup" class="popup">
-        <div class="popup-content">
-            <button class="close" onclick="closePopup('shop3')">X</button>
-            <h3>Commercial Shop - Mall Road</h3>
-            <img src="rao interior img.jpg" alt="Shop 3">
-            <p><strong>Area:</strong> 1000 sqft</p>
-            <p><strong>Rent:</strong> $3,500/month</p>
-            <p><strong>Description:</strong> A commercial shop located on the busiest road of the city.</p>
-            <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
-        </div>
-    </div>
-
     <footer>
-        <p>&copy; 2024 Real Estate And Interior Decor Business</p>
+        <p>&copy; 2024 Real Estate and Interior Decor Business</p>
     </footer>
 
     <script>
-        function showPopup(popupId) {
-            document.getElementById(popupId + '-popup').style.display = 'flex';
+        function showPopup(id) {
+            document.getElementById(id + '-popup').style.display = 'flex';
         }
 
-        function closePopup(popupId) {
-            document.getElementById(popupId + '-popup').style.display = 'none';
+        function closePopup(id) {
+            document.getElementById(id + '-popup').style.display = 'none';
         }
     </script>
 </body>
