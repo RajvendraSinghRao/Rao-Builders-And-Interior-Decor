@@ -23,11 +23,14 @@
         nav {
             display: flex;
             justify-content: center;
+            gap: 20px;
             margin-top: 10px;
+            padding: 10px 0;
+            background-color: #333;
         }
 
         nav a {
-            color: #333;
+            color: #fff;
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
@@ -110,8 +113,8 @@
             }
 
             nav {
-                flex-direction: column;
-                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-around;
             }
 
             nav a {
@@ -367,7 +370,7 @@
             <img src="rao interior img.jpg" alt="Shop 2">
             <p><strong>Area:</strong> 1500 sqft</p>
             <p><strong>Rent:</strong> $5,000/month</p>
-            <p><strong>Description:</strong> Spacious, with great foot traffic.</p>
+            <p><strong>Description:</strong> Large retail space in a busy shopping district.</p>
             <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
         </div>
     </div>
@@ -379,27 +382,23 @@
             <img src="rao interior img.jpg" alt="Shop 3">
             <p><strong>Area:</strong> 1000 sqft</p>
             <p><strong>Rent:</strong> $3,500/month</p>
-            <p><strong>Description:</strong> High visibility and customer exposure.</p>
+            <p><strong>Description:</strong> A commercial shop located on the busiest road of the city.</p>
             <a href="tel:+917977523959" class="contact-btn">Contact Us</a>
         </div>
     </div>
 
-    <!-- Footer Section -->
     <footer>
-        <p>Rajvendra Singh Rao  |  91+ 7977523959</p>
+        <p>&copy; 2024 Real Estate And Interior Decor Business</p>
     </footer>
 
     <script>
-        // Function to show the popup
-        function showPopup(id) {
-            document.getElementById(id + '-popup').style.display = 'flex';
+        function showPopup(popupId) {
+            document.getElementById(popupId + '-popup').style.display = 'flex';
         }
 
-        // Function to close the popup
-        function closePopup(id) {
-            document.getElementById(id + '-popup').style.display = 'none';
+        function closePopup(popupId) {
+            document.getElementById(popupId + '-popup').style.display = 'none';
         }
     </script>
-
 </body>
 </html>
